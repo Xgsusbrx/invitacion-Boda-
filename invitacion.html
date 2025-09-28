@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samuel & Daiana</title>
+  <style>
+    body {
+      
+    
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #fffaf5;
+      color: #8699be;
+      background-image: url("imagenes/font.jpg");
+      background-repeat: no-repeat;  
+      background-size:calc(240vw);   
+      background-position: center;
+      
+    
+
+    
+    }
+
+    header {
+      background-color: rgba(82, 111, 140, 0.08);
+      
+      padding: 2rem 1rem;
+
+
+      
+
+    }
+
+
+
+
+    header h1 {
+      font-family:"Ephesis", cursive; 
+      font-size: 5rem;
+      margin: 0;
+      color: #8699be;
+      padding: 0 5rem;
+    }
+
+    .date-time {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    section {
+      padding: 2rem 5rem;
+    }
+
+    .countdown {
+      font-size: 4rem;
+      margin-top: 1rem;
+      color:#d4af37;
+      font-family: "Parisienne", cursive ;
+    }
+
+    button {
+      background: #94adca;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+    h3{
+      color: #d4af37
+    }
+    h4{
+      
+      color:black;
+      font-size: 1.5rem;
+      margin-top: 0.1rem;
+    }
+
+    button:hover {
+      background: #b7d1cb;;
+    }
+
+    footer {
+      background: #b7d1cb;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: white;
+      
+    }
+
+    @media (max-width: 480px) {
+
+      section {
+        padding:1rem;
+      }
+      button {
+        width: 100%;
+      }
+      section img{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin:0 auto;
+      }
+      header h1 {
+        font-size: 4rem;
+
+      }
+      .countdown {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Samuel & Daiana  </h1>
+    <h3>¡Celebramos nuestro casamiento!</h3>
+    <p class="date-time">7 de diciembre 2.025 </p>
+  </header>
+
+  <section>
+    <p>Con mucha alegría, deseamos compartir este momento tan especial junto a ustedes.</p>
+    <h2>Faltan</h2>
+    <div id="countdown" class="countdown"></div>
+  </section>
+
+  <section>
+    <h2>Ubicación</h2>
+
+    <p> Uruguay 1.037  </p>
+    <p>San Martín-Chaco</p>
+    <button onclick="window.open('https://maps.app.goo.gl/XqYPRm6nLAgKsqHF9', '_blank')">¿Cómo llegar?</button>
+
+    
+  </section>
+
+  <section>
+    
+     <h2>Confirmación</h2>
+    <p>Esperamos que puedan acompañarnos.
+       </p>
+       <p>¡Confírmanos asistencia antes del 15/10/2025!</p>
+       
+    <button onclick="window.open('https://forms.gle/JhN2ZijiU6q6Egfo8', '_blank')">Confirmar</button>
+  </section>
+
+  <section>
+    <h2>
+      Dress Code:
+    </h2>
+    <div >
+    <img src="./imagenes/gancho-de-ropa.png" width="350px">
+</div>
+<h4>Etiqueta</h4>
+
+
+
+  </section>
+
+  <footer>
+    Tu presencia es lo más importante. ¡No faltes! 
+  </footer>
+
+  <script>
+    // Cuenta regresiva
+    const countdown = document.getElementById("countdown");
+    const weddingDate = new Date("Dec 7, 2025 20:30:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "¡El gran día ha llegado!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days} días ${hours}hs ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
